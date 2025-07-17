@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>iLiFE!コール覚える用PAGES</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="icon" href="img/ilife_banner.jpg">
+</head>
+<body>
+  <header>
+  <a href="#" id="scrollTop">
+    <img src="img/ilife_logo.png" alt="Header Logo">
+  </a>
+</header>
+
+  <main>
+    <h2>
+        iLiFE!のコールを覚えるためのページ
+    </h2>
+    <h3>コールのない曲は歌詞割のみ表示しております</h3>
+    <select id="songSelect">
+      <option value="">-- 曲を選んでください --</option>
+    <option value="html/hosiiro.html"></a>星色トラベラー</option>
+    <option value="html/sweet.html">sweet timer</option>
+    <option value="html/hatsukoi.html">初恋リバイバル</option>
+    <option value="html/sleeping.html">Sleeping face</option>
+    <option value="html/quest.html">Quest×Quest</option>
+    <option value="dokkoiroマンティック">Dokkoi!ロマンティック</option>
+    <option value="黄昏サイクル">黄昏サイクル</option>
+    <option value="青春のパズルは埋まらない">青春のパズルは埋まらない</option>
+    <option value="キラメキダイアリー">キラメキダイアリー</option>
+    <option value="hungry">HUNGRY!!!</option>
+    <option value="むげんだいすき">むげんだいすき</option>
+    <option value="君セン">君セン！</option>
+    <option value="可変三連mixをおぼえる歌">可変三連MIXをおぼえる歌</option>
+    <option value="ride-on">Ride on</option>
+    <option value="アイドルライフスターターパック">アイドルライフスターターパック</option>
+    <option value="hands-up">Hands Up!</option>
+    <option value="shout-of-joy">Shout of Joy</option>
+    <option value="ヒラリラリア">ヒラリラリア</option>
+    <option value="会いにkite">会いにKiTE!</option>
+    <option value="kisek">KiSEK!</option>
+    <option value="ころころガール">ころころガール</option>
+    <option value="ドラマチックミライ">ドラマチックミライ</option>
+    <option value="ナイナイ恋煩い">ナイナイ恋煩い♡</option>
+    <option value="アイドルライフブースターパック">アイドルライフブースターパック</option>
+    <option value="サイクロンライフ">サイクロンライフ！</option>
+    <option value="のびしろグリッター">のびしろグリッター</option>
+    <option value="キスハグ侵略者">キスハグ侵略者！</option>
+    <option value="ラブコード">#ラブコード</option>
+    <option value="ガンバッテンダー">ガンバッテンダー</option>
+    <option value="ライフステージ">ライフステージ</option>
+    <option value="デリバリサマー">デリバリサマー!!</option>
+    <option value="アイドルライフエクストラパック">アイドルライフエクストラパック</option>
+    <option value="メッセージ">メッセージ</option>
+    <option value="loml">LOML</option>
+    <option value="くりてぃかるぷりちー">くりてぃかる♡ぷりちー</option>
+    </select>
+    <br><br>
+    <button id="goButton">ページへGO</button>
+    <p id="errorMessage" class="error">楽曲を選択してください</p>
+  </main>
+
+  <label for="bgColorSelect">背景色を選んでね(オレンジは比較的見やすい)</label>
+<select id="bgColorSelect">
+  <option value="">-- 色を選んでください --</option>
+  <option value="#0101015b">グレー</option>
+  <!-- <option value="#000000">ブラック</option> -->
+  <option value="#fceabb">オレンジ</option>
+  <option value="#a6c1ee">パステルブルー</option>
+  <option value="#415a77">ダークブルー</option>
+  <option value="#f9c2ff">ピンク</option>
+  <option value="#c2f9ff">水色</option>
+  <option value="#c2ffc2">ライトグリーン</option>
+</select>
+
+ <footer>
+  <h3>個人的好きな曲３選(異論は受け付けます)</h3>
+  <div class="youtube-row">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/U32RQ7dqpbg?si=9hZs_-pZIsxgzY_L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/sMLCDnxPifk?si=-C9CS2fwtcEVUtef" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/bJpM-1KzZ6M?si=rL37J22MN7tmWBlv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+  お問い合わせはこちらのDMにお願いします：
+  <a href="https://x.com/ndk_ff" target="_blank">
+    <i class="fa-brands fa-x-twitter"></i>
+  </a>
+</footer>
+
+  <script>
+    // ページ遷移ボタンの機能
+     document.getElementById('goButton').addEventListener('click', () => {
+    const song = document.getElementById('songSelect').value;
+    if (song) {
+      document.body.classList.add('fade-out');
+      setTimeout(() => {
+        window.location.href = song;
+      }, 800);  // CSSアニメーションと同じ時間
+    } else {
+      alert('楽曲を選択してください');
+    }
+  });
+    // スクロールトップボタンの機能
+  document.getElementById('scrollTop').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+    // 1. ページロード時に背景を復元
+  window.addEventListener('DOMContentLoaded', () => {
+    const savedColor = localStorage.getItem('bgColor');
+    if (savedColor) {
+      document.body.style.backgroundColor = savedColor;
+    }
+  });
+
+  // 2. 背景色選択時に背景を変えて保存
+  document.getElementById('bgColorSelect').addEventListener('change', (e) => {
+    const color = e.target.value;
+    if (color) {
+      document.body.style.backgroundColor = color;
+      localStorage.setItem('bgColor', color);
+    }
+  });
+  </script>
+</body>
+</html>

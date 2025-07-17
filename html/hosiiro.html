@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>星色トラベラー</title>
+  <link rel="stylesheet" href="../css/kashi.css">
+  <link rel="icon" href="../img/ilife_banner.jpg">
+</head>
+<body>
+  <header>
+    <a href="hosiiro.html" id="scrollTop">
+      <img src="../img/ilife_logo.png" alt="Header Logo">
+    </a>
+    <select id="displayMode">
+      <option value="color">色分けモード</option>
+      <option value="heart">ハートモード</option>
+    </select>
+  </header>
+
+  <main>
+    <h1>星色トラベラー</h1>
+    <div id="lyrics"></div>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sMLCDnxPifk?si=-C9CS2fwtcEVUtef" 
+title="YouTube video player" frameborder="0" 
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </iframe>
+    <button id="backButton">ホームに戻る</button>
+  </main>
+
+  <script>
+    const lyricsData = [
+      "トンネルを抜けて誰もいないとこへ来たんだ",
+      "右のポケット君の左手",
+      "トンネルを抜けて誰もいないとこへ来たんだ",
+      "右のポケット君の左手",
+      "思ってた以上に空が近くて",
+      "このままどこへだって行ける気がした",
+
+      "手を伸ばす星を掴む柔らかな風が吹く",
+      "心地よい沈黙",
+      "君が笑う何してんのとポケット揺らす",
+      "瞬間で無重力僕らの宇宙が広がって",
+
+      "星色トラベラー さあ行こう",
+      "恋人みたいにさ 一緒に",
+      "つむぐストーリーが輝いて未来を照らす",
+      "星色トラベラー 出発だ",
+      "寄り道もいいかな 一緒に",
+      "終わりのない旅に出よう",
+      "2人だけのワンダーナイト",
+
+      "(うっおい×4👏 👏👏👏 👏しゃーいくぞ！ 虎！火！人造！繊維！海女！振動！化繊！飛！除去！)",
+
+      "銀河を超えてずいぶん遠くまで来ちゃった",
+      "きっとロケットさえも来れない",
+      "星屑を集めよう",
+      "こっそりとバレないよう",
+      "ひとつずつ磨いて",
+      "思い出の糸を通したネックレス",
+      "絆の証驚く君にプレゼント",
+
+      "星色トラベラー さあ行こう",
+      "恋人みたいにさ 一緒に",
+      "足跡が星座となって世界を照らす",
+      "星色トラベラー 出発だ",
+      "寄り道もいいかな 一緒に",
+      "次はどこへ向かおうか",
+
+      "(はいせーの！人造ファイヤーファイボワイパー！タイガータイガータタタタタイガー！チャペアペカラキナ！ミョーホントゥスケ！👏ワイパー ファイヤーファイヤー虎虎カラキナ チャペアペファーマー 海女海女ジャスパー 虎タイガー！ワ！虎タイガー！ワ！人造繊維イェッタイガー！)",
+
+      "まるで雪が降っているみたいだ",
+      "きらめきだす視界の中もう一度手を握ろう",
+
+      "(ワ！ワ！ワ！ワ！ワ！ワ！ワールドカオス！諸行！小暮！時雨！神楽！金剛山翔襲叉！黒雲！無常！世界混沌！)",
+      "トンネルを抜けて誰もいないとこへ来たんだ",
+      "右のポケット君の左手",
+
+      "星色トラベラー さあ行こう",
+      "恋人みたいにさ 一緒に",
+      "次のページを開いて未来を探す",
+      "星色トラベラー 出発だ",
+      "寄り道もいいかな 一緒に",
+      "代わりのいない僕らだから",
+      "つないだ手は離さない",
+      "つないだ星座輝く",
+      "2人だけのワンダーナイト",
+
+      "(うっおい！×4👏 👏👏👏 👏しゃーいくぞ！チャペ！アペ！カラ！キナ！ララ！トゥスケ！ミョーホントゥスケ！)"
+    ];
+    const colorForLines = [
+  'white', // 1
+  'white', // 2
+  'yellow', // 3
+  'pink', // 4
+  'green', // 5
+  'green', // 6
+  'blue', // 7
+  'blue', // 8
+  'red', // 9
+  'purple', // 10
+  'black', // 11 (全員)
+  'black', // 12 (全員)
+  'lightblue', // 13
+  'black', // 14 (全員)
+  'black', // 15 (全員)
+  'orange', // 16
+  'black', // 17 (全員)
+  'pink', // 18
+  'pink',
+  'white', // 19
+  'orange', // 20
+  'orange', // 21
+  'green', // 22
+  'red', // 23
+  'blue', // 24
+  'black', // 25 (全員)
+  'black', // 26 (全員)
+  'yellow', // 27
+  'black', // 28 (全員)
+  'black', // 29 (全員)
+  'green', // 30
+  '',
+  'red', // 31
+  'red', // 32
+  '',
+  'white', // 33
+  'white', // 34
+  'black', // 35 (全員)
+  'black', // 36 (全員)
+  'blue', // 37
+  'black', // 38 (全員)
+  'black', // 39 (全員)
+  'pink', // 40
+  'lightblue', // 41
+  'purple', // 42
+  'black' // 43 (全員)
+];
+    const heartForLines = [
+  '🤍', // 1
+  '🤍', // 2
+  '💛', // 3
+  '🩷', // 4
+  '💚', // 5
+  '💚', // 6
+  '💙', // 7
+  '💙', // 8
+  '❤️', // 9
+  '💜', // 10
+  '',   // 11 全員
+  '',   // 12 全員
+  '🩵', // 13
+  '',   // 14 全員
+  '',   // 15 全員
+  '🧡', // 16
+  '',
+  '',   // 17 全員
+  '🩷', // 18
+  '🤍', // 19 ここまでで一番
+  
+  '🧡', // 20
+  '🧡', // 21
+  '💚', // 22
+  '❤️', // 23
+  '💙', // 24
+  '',   // 25 全員
+  '',   // 26 全員
+  '💛', // 27
+  '',   // 28 全員
+  '',   // 29 全員
+  '💚', // 30
+  '❤️', // 31
+  '❤️', // 32
+  '🤍', // 33
+  '🤍', // 34
+  '',   // 35 全員
+  '',   // 36 全員
+  '💙', // 37
+  '',   // 38 全員
+  '',   // 39 全員
+  '🩷', // 40
+  '🩵', // 41
+  '💜', // 42
+  '',   // 43 全員
+];
+  
+    
+
+    const lyricsContainer = document.getElementById('lyrics');
+    const displayModeSelect = document.getElementById('displayMode');
+function renderLyrics(mode) {
+  lyricsContainer.innerHTML = "";
+  let colorIndex = 0;
+  lyricsData.forEach((line, index) => {
+    const div = document.createElement('div');
+
+    if (line.startsWith('(')) {
+      // コールは黒固定
+      div.className = 'call';
+      div.textContent = line;
+    }if (line.startsWith('(')) {
+    // コール
+        div.className = 'call';
+        div.textContent = line;
+    } 
+    else if (line.startsWith('[SEPARATOR]')) {
+    // 区切り
+        div.className = 'separator';
+        div.textContent = line.replace('[SEPARATOR]', '').trim();
+    }else if (mode === 'heart') {
+    div.className = 'lyrics-line';
+    div.style.color = 'black';
+
+    const heartSymbol = heartForLines[index];
+
+    if (heartSymbol && heartSymbol.trim() !== '') {
+        // ハート指定あり：文字列を1本にまとめる
+        div.textContent = `${heartSymbol} ${line}`;
+    } else {
+        // ハートなし：ただの文字
+        div.textContent = line;
+    }
+    }
+    else if (mode === 'color') {
+    div.className = 'lyrics-line';
+    div.style.color = colorForLines[index] || 'black';
+    div.textContent = line;
+    }
+
+    lyricsContainer.appendChild(div);
+  });
+}
+
+    displayModeSelect.addEventListener('change', (e) => {
+      renderLyrics(e.target.value);
+    });
+
+    document.getElementById('backButton').addEventListener('click', () => {
+  document.body.classList.add('fade-out');
+  setTimeout(() => {
+    window.location.href = '../index.html';
+  }, 800);
+});
+
+// ページロード時に背景を復元
+window.addEventListener('DOMContentLoaded', () => {
+  const savedColor = localStorage.getItem('bgColor');
+  if (savedColor) {
+    document.body.style.backgroundColor = savedColor;
+  }
+});
+
+    // 初期描画
+    renderLyrics('color');
+  </script>
+</body>
+</html>

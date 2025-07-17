@@ -1,0 +1,92 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+main {
+  flex: 1;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #0101015b;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  height: 80px;
+  background-color: #f5f5f5;  /* 帯の背景色、好きな色に変えてOK */
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+header img {
+  height: 60px;     /* 画像の縦サイズを制御 */
+  width: auto;      /* アスペクト比保持 */
+}
+
+header img:hover {
+  filter: brightness(0.8);
+}
+
+main {
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+select {
+  width: 80%;
+  padding: 10px;
+  font-size: 1em;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  margin-top: 10px;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+  font-size: 0.9em;
+}
+
+footer a {
+  color: #060606;     /* Xのブランドカラー風 */
+  text-decoration: none;
+  margin-left: 5px;
+  font-size: 1.2em;
+}
+
+footer a:hover {
+  text-decoration: underline;
+  filter: brightness(0.8);
+}
+
+.fade-out {
+  animation: fadeOut 0.8s forwards;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+#bgColorSelect {
+  margin-top: 20px;
+  padding: 6px 12px;
+  font-size: 1em;
+  border-radius: 4px;
+}
