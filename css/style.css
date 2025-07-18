@@ -21,7 +21,7 @@ header {
   background-color: #f5f5f5;  /* 帯の背景色、好きな色に変えてOK */
   display: flex;
   align-items: center;
-  padding: 0 20px;
+  padding: 10px 20px;
 }
 
 header img {
@@ -31,6 +31,95 @@ header img {
 
 header img:hover {
   filter: brightness(0.8);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-button {
+  font-size: 1.8em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #f88;
+  padding: 0;
+}
+
+#scrollTop img {
+  height: 40px;
+}
+
+/* サイドメニューのスタイル */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -300px; /* 初期状態は画面外 */
+  width: 250px;
+  height: 100%;
+  background-color: #cae7e5;
+  z-index: 1001;
+  transition: left 0.3s ease;
+  padding: 20px;
+}
+
+.side-menu h2 {
+  position: relative;
+  display: inline-block;
+  cursor: default;
+}
+
+.side-menu h2:hover::after {
+  content: "";
+  position: absolute;
+  bottom: -4px; /* 下線の位置調整 */
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #000; /* お好みの色に変更可 */
+}
+
+.side-menu.open {
+  left: 0; /* 開くと表示 */
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.side-menu li {
+  margin-bottom: 10px;
+}
+
+.side-menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.member:hover{
+    text-decoration: underline;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); /* 画面暗くする */
+  z-index: 5;
+  display: none;
+  pointer-events: none; /* 初期状態ではクリック無効 */
+}
+
+/* メニュー表示時に表示されて反応も有効に */
+.overlay.show {
+  display: block;
+  pointer-events: auto;
 }
 
 main {

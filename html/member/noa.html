@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>若葉のあ - iLiFE!</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" href="../img/ilife_banner.jpg">
+  <style>
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #f0fff0;
+      color: #333;
+      padding: 20px;
+    }
+
+    .profile-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(100, 255, 100, 0.3);
+      text-align: center;
+      position: relative;
+    }
+
+    .profile-container h1 {
+      font-size: 2em;
+      color: #4caf50;
+      margin-bottom: 5px;
+    }
+
+    .profile-container .kana {
+      font-size: 1em;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    .profile-img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .profile-info {
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .profile-info p {
+      margin: 10px 0;
+      font-size: 1.1em;
+    }
+
+    .social-links a {
+      margin: 0 10px;
+      font-size: 1.2em;
+      text-decoration: none;
+      color: #4caf50;
+    }
+
+    /* モーダル */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      padding-top: 40px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+      animation: fadeIn 0.3s ease forwards;
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+      transform: scale(0.7);
+      transition: transform 0.3s ease;
+    }
+
+    .modal.show .modal-content {
+      transform: scale(1);
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fff;
+      font-size: 2em;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #ffaaaa;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="profile-container">
+    <h1>若葉のあ</h1>
+    <div class="kana">(wakaba noa)</div>
+
+    <img src="/img/wakabanoa.jpg" alt="若葉のあ" class="profile-img" id="noaImg">
+
+    <div class="profile-info">
+      <p><strong>誕生日:</strong> 2007/7/7</p>
+      <p><strong>身長:</strong> 164cm</p>
+      <p><strong>メンバーカラー:</strong> 緑 💚</p>
+      <p><strong>キャッチコピー:</strong> 君に届け！のあのあい♡</p>
+      <div class="social-links">
+        <a href="https://x.com/iLiFE_wakaba" target="_blank">X</a> |
+        <a href="https://www.instagram.com/ilife_wakaba/" target="_blank">Instagram</a> |
+        <a href="https://www.tiktok.com/@ilife__wakaba" target="_blank">TikTok</a> |
+        <a href="https://ilife-heroines.com/profile/member/index/505" target="_blank">公式プロフィール</a>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="../../index.html" style="
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+      ">トップへ戻る</a>
+    </div>
+  </div>
+
+  <!-- モーダル -->
+  <div id="imgModal" class="modal">
+    <span class="close" id="closeModal">&times;</span>
+    <img class="modal-content" id="modalImg">
+  </div>
+
+  <script>
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('modalImg');
+    const closeBtn = document.getElementById('closeModal');
+    const noaImg = document.getElementById('noaImg');
+
+    noaImg.onclick = () => {
+      modal.style.display = "block";
+      modal.classList.add('show');
+      modalImg.src = noaImg.src;
+    }
+
+    closeBtn.onclick = () => {
+      modal.style.display = "none";
+      modal.classList.remove('show');
+    }
+
+    window.onclick = (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+        modal.classList.remove('show');
+      }
+    }
+  </script>
+
+</body>
+</html>

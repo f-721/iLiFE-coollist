@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>青春のパズルは埋まらない</title>
+  <link rel="stylesheet" href="../css/kashi.css">
+  <link rel="icon" href="../img/ilife_banner.jpg">
+</head>
+<body>
+  <header>
+    <a href="aopazu.html" id="scrollTop">
+      <img src="../img/ilife_logo.png" alt="Header Logo">
+    </a>
+    <select id="displayMode">
+      <option value="color">色分けモード</option>
+      <option value="heart">ハートモード</option>
+    </select>
+  </header>
+
+  <main>
+    <h1>sweet timer</h1>
+    <div id="lyrics"></div>
+ <div class="member-color-label">
+    メンバーカラー：<br>
+    赤 ❤️ 心花りり <br>
+    黄 💛 福丸うさ <br>
+    緑 💚 若葉のあ <br>
+    ピンク 🩷 那蘭のどか <br>
+    白 🤍 あいす <br>
+    青 💙 空詩かれん <br>
+    水 🩵 虹羽みに <br>
+    紫 💜 純嶺みき <br>
+    オレンジ 🧡 小熊まむ <br>
+    </div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_QPSomNqQ9E?si=H7011dr0nJZEPDOI" 
+title="YouTube video player" frameborder="0" 
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </iframe>
+    <button id="backButton">ホームに戻る</button>
+  </main>
+
+  <script>
+        const lyricsData = [
+    ' (はいせーの！ミョーホントゥスケ！化繊飛除去！ジャージャー！ファイボ！ワイパー！) ',
+    ' (うりゃおい×4 あー！👏しゃーいくぞ！タイガー！ファイヤー！サイバー！ファイバー！ダイバー！バイバー！ジャージャー！',
+    '虎！火！人造！繊維！海女！振動！化繊！チャペ！アペ！カラ！キナ！ララ！トゥスケ！ミョーホントゥスケ！) ',
+    'すうっと息を吸い込んだら何でもできる気がするの',//りり
+    '世界で1番ハッピーガール',//のどか
+    'こんな日が永遠なんて信じてるわけじゃないけど',//みに
+    '集めたピース無くしたくはないよ',//あいす
+    'はぁ、ため息ばかり想像しても意味ないね',//かれん
+    ' (おーふっふー×4) ',
+    '前を見てね',//うさ
+    'これからの私へ走っていく',//のあ
+    '青春のパズルは埋まらない',
+    '秒針が止まる時まで探して行くのさ',//まむ
+    '今日をとっておくなんてできないけど',
+    '明日へとつなぐ奇跡へ宿ってるから',//みき
+    'Believe yourself 私で居続けよう',//かれん
+    '毎日へピースサイン',
+    ' (マルフォイ×4　👏□👏👏👏□👏グリフィンドール！アクシオレダクトルーモス！ウィンガーディアムレヴィオーサー',
+    'あなたのは、レヴィオサー エクスペクトパトローナム！トムリドル！俺の！トムリドル！俺の！ヴォルデモートって知ってる？) ',
+    'どんな空もほら眩しく 何でもない日でさえも',//のどか
+    '止まらない笑顔はきっとあせない',//うさ
+    '新しい風が吹いて 不安だけが吹き飛ぶなら',//あいす
+    '大事なピース無くすことはないね',//のあ
+    'さあ、まだ見ぬ明日に胸が躍るからこれからも',//りり
+    ' (おーふっふー！×4) ',
+    '振り向かず',//かれん
+    'まっすぐな私で走っていこう',//みき
+    '青春のパズルは埋まらない',
+    'いつの日も忘れたくない想いを背負って',//あいす
+    '今日が涙の渦に消えそうでも',
+    '輝きへ繋いだ道が明日を見せる',//のあ
+    '希望はギミック人生は凸凹',//みに
+    'らしくありたいんだ',
+    ' (キャプテン翼可変三連) ',
+    ' (きたきたきたきたわいてきたー！タイガータイガータイガーショット！虎タイ虎タイ虎タイガー！人造繊維イェッタイガー！',
+    ' ジャージャー！ジャージャー！バリバリボー！ストストストストストライカー！カール！ハインツ！シュナイダー！スカイ！ラブ！ハリケーン！) ',
+    '気がつけば変わりゆく青色',//かれん
+    ' (ワ！ワ！ワ！ワ！ワ！ワ！ワールドカオス！) ',
+    'また空がかすんでいくようなそれでもいいから',//かれん
+    ' (諸行！小暮！時雨！神楽！金剛山翔襲叉！) ',//コール
+    '手に取ったのは2つと無いもので',//りり
+    ' (しょ！しょ！しょ！しょ！しょ！しょ！翔襲叉！) ',//コール
+    '思い出を私を作るもの',//りり
+    ' (金剛山！神楽！時雨！小暮！諸行！ワールドカオス！) ',
+    '青春のパズルは埋まらない',
+    '秒針が止まる時まで探して行くのさ',//のどか
+    '青春のパズルはつなぐのは',
+    '未来への希望の証宿ってるから',//のあ
+    'Believe yourself 私で居続けよう',//あいす
+    '毎日へピースサイン',
+    ' (言いたいことがあるんだよ！やっぱり○○は可愛いよ！好き好き大好きやっぱ好き！やっと見つけたお姫様！',
+    '俺が生まれてきた理由！それは○○に出会うため！俺と一緒に人生歩もう！世界で1番愛してる！ア・イ・シ・テ・ルー！) ',
+    ];
+    const colorForLines = [
+  '',
+  '',
+  '',
+'red', 
+'pink',
+'lightblue',
+'white',
+'blue',
+'',
+'yellow',
+'green',
+    '',
+'orange',
+'',
+'purple',
+'blue',
+'',
+'',
+'',
+'pink',
+'yellow',
+'white',
+'green',
+'red',
+'',
+'blue',
+'purple',
+'',
+'white',
+'',
+'green',
+'lightblue',
+'',
+'',
+'',
+'',
+'blue',
+'', 
+'blue' ,
+'',
+'red',
+'',
+'red',
+'',
+'',
+'pink',
+'',
+'green',
+'white',
+
+];
+    const heartForLines = [
+  '🌈', // 1
+  '🌈', // 2
+  '🌈', // 3
+  '❤️', // 4 (red)
+  '🩷', // 5 (pink)
+  '🩵', // 6 (lightblue)
+  '🤍', // 7 (white)
+  '💙', // 8 (blue)
+  '🌈', // 9
+  '💛', // 10 (yellow)
+  '💚', // 11 (green)
+  '🌈', // 12
+  '🧡', // 13 (orange)
+  '🌈', // 14
+  '💜', // 15 (purple)
+  '💙', // 16 (blue)
+  '🌈', // 17
+  '🌈', // 18
+  '🌈', // 19
+  '🩷', // 20 (pink)
+  '💛', // 21 (yellow)
+  '🤍', // 22 (white)
+  '💚', // 23 (green)
+  '❤️', // 24 (red)
+  '🌈', // 25
+  '💙', // 26 (blue)
+  '💜', // 27 (purple)
+  '🌈', // 28
+  '🤍', // 29 (white)
+  '🌈', // 30
+  '💚', // 31 (green)
+  '🩵', // 32 (lightblue)
+  '🌈', // 33
+  '🌈', // 34
+  '🌈', // 35
+  '🌈', // 36
+  '💙', // 37 (blue)
+  '', // 38
+  '💙', // 39 (blue)
+  '', // 40
+  '❤️', // 41 (red)
+  '', // 42
+  '❤️', // 43 (red)
+  '', // 44
+  '🌈', // 45
+  '🩷', // 46 (pink)
+  '🌈', // 47
+  '💚', // 48 (green)
+  '🤍', // 49 (white)
+  '🌈'
+];
+    
+
+    const lyricsContainer = document.getElementById('lyrics');
+    const displayModeSelect = document.getElementById('displayMode');
+function renderLyrics(mode) {
+  lyricsContainer.innerHTML = "";
+  let colorIndex = 0;
+  lyricsData.forEach((line, index) => {
+    const div = document.createElement('div');
+
+    if ((line.startsWith(' (') || line.endsWith(') '))) {
+    // コール
+        div.className = 'call';
+        div.textContent = line;
+    } 
+    else if (line.startsWith('[SEPARATOR]')) {
+    // 区切り
+        div.className = 'separator';
+        div.textContent = line.replace('[SEPARATOR]', '').trim();
+    }else if (mode === 'heart') {
+    div.className = 'lyrics-line';
+    div.style.color = 'black';
+
+    const heartSymbol = heartForLines[index];
+
+    if (heartSymbol && heartSymbol.trim() !== '') {
+        // ハート指定あり：文字列を1本にまとめる
+        div.textContent = `${heartSymbol} ${line}`;
+    } else {
+        // ハートなし：ただの文字
+        div.textContent = line;
+    }
+    }
+    else if (mode === 'color') {
+    div.className = 'lyrics-line';
+    div.style.color = colorForLines[index] || 'black';
+    div.textContent = line;
+    }
+
+    lyricsContainer.appendChild(div);
+  });
+}
+
+    displayModeSelect.addEventListener('change', (e) => {
+      renderLyrics(e.target.value);
+    });
+
+    document.getElementById('backButton').addEventListener('click', () => {
+  document.body.classList.add('fade-out');
+  setTimeout(() => {
+    window.location.href = '../index.html';
+  }, 800);
+});
+
+// ページロード時に背景を復元
+window.addEventListener('DOMContentLoaded', () => {
+  const savedColor = localStorage.getItem('bgColor');
+  if (savedColor) {
+    document.body.style.backgroundColor = savedColor;
+  }
+});
+
+    // 初期描画
+    renderLyrics('color');
+  </script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>福丸うさ - iLiFE!</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" href="../img/ilife_banner.jpg">
+  <style>
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #fffde7;
+      color: #333;
+      padding: 20px;
+    }
+
+    .profile-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(255, 221, 51, 0.3);
+      text-align: center;
+      position: relative;
+    }
+
+    .profile-container h1 {
+      font-size: 2em;
+      color: #fbc02d;
+      margin-bottom: 5px;
+    }
+
+    .profile-container .kana {
+      font-size: 1em;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    .profile-img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .profile-info {
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .profile-info p {
+      margin: 10px 0;
+      font-size: 1.1em;
+    }
+
+    .social-links a {
+      margin: 0 10px;
+      font-size: 1.2em;
+      text-decoration: none;
+      color: #fbc02d;
+    }
+
+    /* モーダル */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      padding-top: 40px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fff;
+      font-size: 2em;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #ffd54f;
+    }
+
+    /* アニメーション */
+    @keyframes zoomFadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes zoomFadeOut {
+      from {
+        opacity: 1;
+        transform: scale(1);
+      }
+      to {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+    }
+
+    .modal-content.animate-in {
+      animation: zoomFadeIn 0.3s ease;
+    }
+
+    .modal-content.animate-out {
+      animation: zoomFadeOut 0.3s ease forwards;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="profile-container">
+    <h1>福丸うさ</h1>
+    <div class="kana">(fukumaru usa)</div>
+
+    <img src="/img/fukumaruusa.jpg" alt="福丸うさ" class="profile-img" id="usaImg">
+
+    <div class="profile-info">
+      <p><strong>誕生日:</strong> 2004/1/26</p>
+      <p><strong>メンバーカラー:</strong> 黄 💛</p>
+      <p><strong>身長:</strong> 159cm</p>
+      <p><strong>キャッチコピー:</strong> うさと笑えば福きたる</p>
+      <div class="social-links">
+        <a href="https://x.com/iLiFE_fukumaru" target="_blank">X</a> |
+        <a href="https://www.instagram.com/ilife_usa/" target="_blank">Instagram</a> |
+        <a href="https://www.tiktok.com/@fukumarusa?lang=ja-JP" target="_blank">TikTok</a> |
+        <a href="https://ilife-heroines.com/profile/member/index/503" target="_blank">公式プロフィール</a>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="../../index.html" style="
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #fbc02d;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+      ">トップへ戻る</a>
+    </div>
+  </div>
+
+  <!-- モーダル -->
+  <div id="imgModal" class="modal">
+    <span class="close" id="closeModal">&times;</span>
+    <img class="modal-content" id="modalImg">
+  </div>
+
+  <script>
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('modalImg');
+    const closeBtn = document.getElementById('closeModal');
+    const usaImg = document.getElementById('usaImg');
+
+    usaImg.onclick = () => {
+      modal.style.display = "block";
+      modalImg.src = usaImg.src;
+      modalImg.classList.add("animate-in");
+    };
+
+    function closeModal() {
+      modalImg.classList.remove("animate-in");
+      modalImg.classList.add("animate-out");
+
+      modalImg.addEventListener('animationend', () => {
+        modal.style.display = "none";
+        modalImg.classList.remove("animate-out");
+      }, { once: true });
+    }
+
+    closeBtn.onclick = closeModal;
+
+    window.onclick = (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    };
+  </script>
+</body>
+</html>

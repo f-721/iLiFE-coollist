@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>那蘭のどか - iLiFE!</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" href="../img/ilife_banner.jpg">
+  <style>
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #fff0f5;
+      color: #333;
+      padding: 20px;
+    }
+
+    .profile-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(255, 150, 200, 0.3);
+      text-align: center;
+      position: relative;
+    }
+
+    .profile-container h1 {
+      font-size: 2em;
+      color: #e91e63;
+      margin-bottom: 5px;
+    }
+
+    .kana {
+      font-size: 1em;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    .profile-img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .profile-info {
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .profile-info p {
+      margin: 10px 0;
+      font-size: 1.1em;
+    }
+
+    .social-links a {
+      margin: 0 10px;
+      font-size: 1.2em;
+      text-decoration: none;
+      color: #e91e63;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      padding-top: 40px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+      animation: fadeIn 0.3s ease forwards;
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+      animation: zoomIn 0.3s ease forwards;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fff;
+      font-size: 2em;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #ffaaaa;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { background-color: rgba(0,0,0,0); }
+      to   { background-color: rgba(0,0,0,0.8); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="profile-container">
+    <h1>那蘭のどか</h1>
+    <div class="kana">(nara nodoka)</div>
+
+    <img src="/img/naranodoka.jpg" alt="那蘭のどか" class="profile-img" id="nodokaImg">
+
+    <div class="profile-info">
+      <p><strong>誕生日:</strong> 2005/10/12</p>
+      <p><strong>身長:</strong> 164cm</p>
+      <p><strong>メンバーカラー:</strong> ピンク 🩷</p>
+      <p><strong>キャッチコピー:</strong> のどかの事好きにならない？</p>
+      <div class="social-links">
+        <a href="https://x.com/iLiFE_nara" target="_blank">X</a> |
+        <a href="https://www.instagram.com/ilife_nodoka/reels/?hl=ja" target="_blank">Instagram</a> |
+        <a href="https://www.tiktok.com/@ilife_nodoka" target="_blank">TikTok</a> |
+        <a href="https://ilife-heroines.com/profile/member/index/545" target="_blank">公式プロフィール</a>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="../../index.html" style="
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #e91e63;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+      ">トップへ戻る</a>
+    </div>
+  </div>
+
+  <div id="imgModal" class="modal">
+    <span class="close" id="closeModal">&times;</span>
+    <img class="modal-content" id="modalImg">
+  </div>
+
+  <script>
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('modalImg');
+    const closeBtn = document.getElementById('closeModal');
+    const profileImg = document.getElementById('nodokaImg');
+
+    profileImg.onclick = () => {
+      modal.style.display = "block";
+      modalImg.src = profileImg.src;
+    };
+
+    closeBtn.onclick = () => {
+      modal.style.display = "none";
+    };
+
+    window.onclick = (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    };
+  </script>
+</body>
+</html>

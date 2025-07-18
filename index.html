@@ -8,15 +8,38 @@
   <link rel="icon" href="img/ilife_banner.jpg">
 </head>
 <body>
-  <header>
-  <a href="#" id="scrollTop">
-    <img src="img/ilife_logo.png" alt="Header Logo">
-  </a>
-</header>
+   <header>
+    <div class="header-container">
+      <button class="menu-button" id="menuToggle">≡</button>
+      <a href="#" id="scrollTop">
+        <img src="img/ilife_logo.png" alt="Header Logo">
+      </a>
+    </div>
+  </header>
+
+  <!-- 横から出るメニュー -->
+  <nav class="side-menu" id="sideMenu">
+    <h2>メンバー</h2>
+    <ul>
+      <li><a href="/html/member/riri.html" class="member">心花りり</a></li>
+      <li><a href="/html/member/usa.html" class="member">福丸うさ</a></li>
+      <li><a href="/html/member/noa.html" class="member">若葉のあ</a></li>
+      <li><a href="/html/member/nodoka.html" class="member">那蘭のどか</a></li>
+      <li><a href="/html/member/ice.html" class="member">あいす</a></li>
+      <li><a href="/html/member/karen.html" class="member">空詩かれん</a></li>
+      <li><a href="/html/member/mini.html" class="member">虹羽みに</a></li>
+      <li><a href="/html/member/miki.html" class="member">純嶺みき</a></li>
+      <li><a href="/html/member/mamu.html" class="member">小熊まむ</a></li>
+    </ul>
+    <button id="menuClose">← 戻る</button>
+  </nav>
+
+  <!-- 背景クリック検出用 -->
+  <div id="overlay" class="overlay"></div>
 
   <main>
     <h2>
-        iLiFE!のコールを覚えるためのページ
+        iLiFE!コール練習サイト
     </h2>
     <h3>コールのない曲は歌詞割のみ表示しております</h3>
     <select id="songSelect">
@@ -28,11 +51,11 @@
     <option value="html/quest.html">Quest×Quest</option>
     <option value="dokkoiroマンティック">Dokkoi!ロマンティック</option>
     <option value="黄昏サイクル">黄昏サイクル</option>
-    <option value="青春のパズルは埋まらない">青春のパズルは埋まらない</option>
+    <option value="html/aopazu.html">青春のパズルは埋まらない</option>
     <option value="キラメキダイアリー">キラメキダイアリー</option>
     <option value="hungry">HUNGRY!!!</option>
     <option value="むげんだいすき">むげんだいすき</option>
-    <option value="君セン">君セン！</option>
+    <option value="html/kimisen.html">君セン！</option>
     <option value="可変三連mixをおぼえる歌">可変三連MIXをおぼえる歌</option>
     <option value="ride-on">Ride on</option>
     <option value="アイドルライフスターターパック">アイドルライフスターターパック</option>
@@ -62,33 +85,43 @@
     <p id="errorMessage" class="error">楽曲を選択してください</p>
   </main>
 
-  <label for="bgColorSelect">背景色を選んでね(オレンジは比較的見やすい)</label>
-<select id="bgColorSelect">
-  <option value="">-- 色を選んでください --</option>
-  <option value="#0101015b">グレー</option>
-  <!-- <option value="#000000">ブラック</option> -->
-  <option value="#fceabb">オレンジ</option>
-  <option value="#a6c1ee">パステルブルー</option>
-  <option value="#415a77">ダークブルー</option>
-  <option value="#f9c2ff">ピンク</option>
-  <option value="#c2f9ff">水色</option>
-  <option value="#c2ffc2">ライトグリーン</option>
-</select>
+  <div style="text-align: center; margin-top: 20px;">
+  <label for="bgColorSelect">背景色を選んでね(オレンジは比較的見やすい)</label><br>
+    <select id="bgColorSelect" style="margin-top: 10px;">
+      <option value="">-- 色を選んでください --</option>
+      <option value="#0101015b">グレー</option>
+      <!-- <option value="#000000">ブラック</option> -->
+      <option value="#fceabb">オレンジ</option>
+      <option value="#a6c1ee">パステルブルー</option>
+      <option value="#415a77">ダークブルー</option>
+      <option value="#f9c2ff">ピンク</option>
+      <option value="#c2f9ff">水色</option>
+      <option value="#c2ffc2">ライトグリーン</option>
+    </select>
+</div>
 
  <footer>
   <h3>個人的好きな曲３選(異論は受け付けます)</h3>
   <div class="youtube-row">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/U32RQ7dqpbg?si=9hZs_-pZIsxgzY_L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/sMLCDnxPifk?si=-C9CS2fwtcEVUtef" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/40ps-SGilIs?si=7-JRE3dF-RGHKL9A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/bJpM-1KzZ6M?si=rL37J22MN7tmWBlv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </div>
   お問い合わせはこちらのDMにお願いします：
   <a href="https://x.com/ndk_ff" target="_blank">
-    <i class="fa-brands fa-x-twitter"></i>
+    <i class="fa-brands fa-x-twitter"></i><br>
+    <br>
   </a>
+   このサイトはファンが制作した非公式サイトです。<br>
+  iLiFE!および所属事務所とは一切関係ございません。<br>
+  公式サイトやメンバーへのお問い合わせはご遠慮ください。
 </footer>
 
   <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const sideMenu = document.getElementById('sideMenu');
+    const overlay = document.getElementById('overlay');
+
     // ページ遷移ボタンの機能
      document.getElementById('goButton').addEventListener('click', () => {
     const song = document.getElementById('songSelect').value;
@@ -126,6 +159,21 @@
       localStorage.setItem('bgColor', color);
     }
   });
+
+ 
+// メニューを開くとき
+menuToggle.addEventListener('click', (e) => {
+  e.stopPropagation();
+  sideMenu.classList.add('open');
+  overlay.classList.add('show'); // ← ここで表示
+});
+
+const menuClose = document.getElementById('menuClose');
+
+menuClose.addEventListener('click', () => {
+  sideMenu.classList.remove('open');
+  overlay.classList.remove('show');
+});
   </script>
 </body>
 </html>

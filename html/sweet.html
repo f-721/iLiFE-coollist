@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>sweet timer</title>
+  <link rel="stylesheet" href="../css/kashi.css">
+  <link rel="icon" href="../img/ilife_banner.jpg">
+</head>
+<body>
+  <header>
+    <a href="sweet.html" id="scrollTop">
+      <img src="../img/ilife_logo.png" alt="Header Logo">
+    </a>
+    <select id="displayMode">
+      <option value="color">色分けモード</option>
+      <option value="heart">ハートモード</option>
+    </select>
+  </header>
+
+  <main>
+    <h1>sweet timer</h1>
+    <div id="lyrics"></div>
+ <div class="member-color-label">
+    メンバーカラー：<br>
+    赤 ❤️ 心花りり <br>
+    黄 💛 福丸うさ <br>
+    緑 💚 若葉のあ <br>
+    ピンク 🩷 那蘭のどか <br>
+    白 🤍 あいす <br>
+    青 💙 空詩かれん <br>
+    水 🩵 虹羽みに <br>
+    紫 💜 純嶺みき <br>
+    オレンジ 🧡 小熊まむ <br>
+    </div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tAM_3bcvqyE?si=-DnxXAM6pCStmG8H" 
+title="YouTube video player" frameborder="0" 
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </iframe>
+    <button id="backButton">ホームに戻る</button>
+  </main>
+
+  <script>
+    const lyricsData = [
+  "沈み切った公園で指折り数えていった",
+  "奇跡なんて偶然に落ちてないかなぁ？",
+  "ふと見つけたんだ あの一番星",
+  "僕の理想だけを詰め込んでて",
+  "キミと僕誘ランデブー",
+  "イタズラぎゅっと掴んでく",
+  "あぁこれは全て妄想なんでしょ？",
+  "「ねぇこれはどうかな？」",
+  "「これも変かな？」",
+  "Cinderella magic sweet time",
+  "ずっと満点星空 時を止めてもう一回僕を夢の中へ",
+  "きっと変わらない願い事があるから",
+  "僕をぎゅっとぎゅっとぐっと離さないで",
+  "未体験僕の腕の中へ",
+  "キミの香り震える声",
+  "もしこの世界が変わる魔法があるなら",
+  "ずっと",
+  "ずっと",
+  "ずっと",
+  "夜が明けるまで欲しいよ",
+  "忙しない日常で指折り数えていった",
+  "キミと会える日曜日 あと少しなんです",
+  "どうかこの世界がずっと輝きますように",
+  "もっと幸せが溢れますように",
+  "Happy lucky いないいないばぁ",
+  "キラキラDay アイドルさ",
+  "「ねぇどきどきだね」",
+  "「一緒にたのしもうね」",
+  "Cinderella magic sweet time",
+  "ずっと満点星空時を止めてもう一回僕を夢の中へ",
+  "きっと変わらない願い事があるから",
+  "僕をぎゅっとぎゅっとぐっと離さないで",
+  "未体験僕の腕の中へ",
+  "キミの香り震える声",
+  "もしこの世界が変わる魔法があるなら",
+  "ずっと",
+  "ずっと",
+  "ずっと",
+  "夜が明けるまで欲しいよ",
+  "あぁ綺麗な翼広げ飛べるのかな？",
+  "もう夜明けまで越えていけ",
+  "ずっと満点星空時を止めて",
+  "もう一回僕を夢の中へ",
+  "きっと変わらない願い事があるから",
+  "僕をぎゅっとぎゅっとぐっと離さないで",
+  "未来は不透明な言葉だらけ",
+  "それでも僕はキミと居たいだけ",
+  "もしこの世界が続く魔法があるなら",
+  "ずっとずっとずっと夜だけ触れていたいよ",
+  "ねぇ 夢で逢えるなら満足だよ",
+  "この続きはまた今度ね"
+];
+    const colorForLines = [
+  'red',       // 1
+  'red',       // 2
+  'blue',      // 3
+  'pink',      // 4
+  'black',     // 5 (黄色＋白)
+  'black',     // 6 (黄色＋白)
+  'white',     // 7
+  'yellow',    // 8
+  'white',     // 9
+  'green',     // 10
+  'black',     // 11 (全員)
+  'white',     // 12
+  'white',     // 13
+  'black',     // 14 (全員)
+  'black',     // 15 (全員)
+  'red',       // 16
+  'lightblue', // 17 (水)
+  'blue',      // 18
+  'orange',    // 19
+  'purple',    // 20
+  'blue',      // 21
+  'blue',      // 22
+  'orange',    // 23
+  'white',     // 24
+  'black',     // 25（ピンク＋黄色）
+  'black',     // 26（ピンク＋黄色）
+  'pink',      // 27
+  'yellow',    // 28
+  'purple',    // 29
+  'black',     // 30（全員）
+  'red',       // 31
+  'red',       // 32
+  'black',     // 33（全員）
+  'black',     // 34（全員）
+  'green',     // 35
+  'yellow',    // 36
+  'white',     // 37
+  'purple',    // 38
+  'lightblue', // 39（水）
+  'blue',      // 40
+  'blue',      // 41
+  'green',     // 42
+  'pink',      // 43
+  'white',     // 44
+  'white',     // 45
+  'black',     // 46（全員）
+  'black',     // 47（全員）
+  'black',     // 48（全員）
+  'black',     // 49（全員）
+  'red',       // 50
+  'red'        // 51
+];
+   const heartForLines = [
+  '❤️',    // 1
+  '❤️',    // 2
+  '💙',    // 3
+  '🩷',    // 4
+  '🤍+💛',  // 5 （黄色＋白）
+  '🤍+💛',  // 6 （黄色＋白）
+  '🤍',    // 7
+  '💛',    // 8
+  '🤍',    // 9
+  '💚',    // 10
+  '🌈',    // 11 全員
+  '🤍',    // 12
+  '🤍',    // 13
+  '🌈',    // 14 全員
+  '🌈',    // 15 全員
+  '❤️',    // 16
+  '🩵',    // 17（水）
+  '💙',    // 18
+  '🧡',    // 19
+  '💜',    // 20
+  '💙',    // 21
+  '💙',    // 22
+  '🧡',    // 23
+  '🤍',    // 24
+  '🩷💛',  // 25（ピンク＋黄色）
+  '🩷💛',  // 26（ピンク＋黄色）
+  '🩷',    // 27
+  '💛',    // 28
+  '💜',    // 29
+  '🌈',    // 30 全員
+  '❤️',    // 31
+  '❤️',    // 32
+  '🌈',    // 33 全員
+  '🌈',    // 34 全員
+  '💚',    // 35
+  '💛',    // 36
+  '🤍',    // 37
+  '💜',    // 38
+  '🩵',    // 39（水）
+  '💙',    // 40
+  '💙',    // 41
+  '💚',    // 42
+  '🩷',    // 43
+  '🤍',    // 44
+  '🤍',    // 45
+  '🌈',    // 46 全員
+  '🌈',    // 47 全員
+  '🌈',    // 48 全員
+  '🌈',    // 49 全員
+  '❤️',    // 50
+  '❤️'     // 51
+];
+    
+
+    const lyricsContainer = document.getElementById('lyrics');
+    const displayModeSelect = document.getElementById('displayMode');
+function renderLyrics(mode) {
+  lyricsContainer.innerHTML = "";
+  let colorIndex = 0;
+  lyricsData.forEach((line, index) => {
+    const div = document.createElement('div');
+
+    if ((line.startsWith(' (') || line.endsWith(') '))) {
+    // コール
+        div.className = 'call';
+        div.textContent = line;
+    } 
+    else if (line.startsWith('[SEPARATOR]')) {
+    // 区切り
+        div.className = 'separator';
+        div.textContent = line.replace('[SEPARATOR]', '').trim();
+    }else if (mode === 'heart') {
+    div.className = 'lyrics-line';
+    div.style.color = 'black';
+
+    const heartSymbol = heartForLines[index];
+
+    if (heartSymbol && heartSymbol.trim() !== '') {
+        // ハート指定あり：文字列を1本にまとめる
+        div.textContent = `${heartSymbol} ${line}`;
+    } else {
+        // ハートなし：ただの文字
+        div.textContent = line;
+    }
+    }
+    else if (mode === 'color') {
+    div.className = 'lyrics-line';
+    div.style.color = colorForLines[index] || 'black';
+    div.textContent = line;
+    }
+
+    lyricsContainer.appendChild(div);
+  });
+}
+
+    displayModeSelect.addEventListener('change', (e) => {
+      renderLyrics(e.target.value);
+    });
+
+    document.getElementById('backButton').addEventListener('click', () => {
+  document.body.classList.add('fade-out');
+  setTimeout(() => {
+    window.location.href = '../index.html';
+  }, 800);
+});
+
+// ページロード時に背景を復元
+window.addEventListener('DOMContentLoaded', () => {
+  const savedColor = localStorage.getItem('bgColor');
+  if (savedColor) {
+    document.body.style.backgroundColor = savedColor;
+  }
+});
+
+    // 初期描画
+    renderLyrics('color');
+  </script>
+</body>
+</html>
