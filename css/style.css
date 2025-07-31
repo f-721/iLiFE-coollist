@@ -122,6 +122,15 @@ header img:hover {
   pointer-events: auto;
 }
 
+.ilife-height {
+  width: 100%;
+  max-width: 800px; /* 適切な上限幅に調整 */
+  height: auto;
+  display: block;
+  margin: 0 auto; /* 中央寄せ */
+  border-radius: 10px; /* 丸みをつけたい場合はオプション */
+}
+
 main {
   max-width: 600px;
   margin: 20px auto;

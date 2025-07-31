@@ -373,8 +373,11 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-    // 初期描画
-    renderLyrics('color');
+// ① ハートモードを初期選択に設定
+displayModeSelect.value = 'heart';
+
+// ② 初期描画モードをハートに変更
+renderLyrics('heart');
   </script>
 </body>
 </html>
