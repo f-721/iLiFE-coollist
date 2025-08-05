@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dokkoi!ロマンティック</title>
+  <link rel="stylesheet" href="../css/kashi.css">
+  <link rel="icon" href="../img/ilife_banner.jpg">
+</head>
+<body>
+  <header>
+    <a href="dokkoi.html" id="scrollTop">
+      <img src="../img/ilife_logo.png" alt="Header Logo">
+    </a>
+    <select id="displayMode">
+      <option value="color">色分けモード</option>
+      <option value="heart">ハートモード</option>
+    </select>
+  </header>
+
+  <main>
+    <h1>Dokkoi!ロマンティック</h1>
+    <div id="lyrics"></div>
+ <div class="member-color-label">
+    メンバーカラー：<br>
+    赤 ❤️ 心花りり <br>
+    黄 💛 福丸うさ <br>
+    緑 💚 若葉のあ <br>
+    ピンク 🩷 那蘭のどか <br>
+    白 🤍 あいす <br>
+    青 💙 空詩かれん <br>
+    水 🩵 虹羽みに <br>
+    紫 💜 純嶺みき <br>
+    オレンジ 🧡 小熊まむ <br>
+    </div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WzeWA2aK3T0?si=5nqIXPuPjvq_u7Km" 
+title="YouTube video player" frameborder="0" 
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </iframe>
+    <button id="backButton">ホームに戻る</button>
+  </main>
+
+  <script>
+    const lyricsData = [
+  "ぱぱぱー！ぱぱぱー！",
+  "とびだせジャンピング！",
+  "会いたくって飛んできたの！",
+  "ぱぱぱー！ぱぱぱー！",
+  "とびだせオーイェイ！",
+  "ファンタジックな恋なのさ",
+
+  " (うりゃおい×4 あー！しゃーいくぞ！",
+  "タイガー！ファイヤー！サイバー！ファイバー！ダイバー！バイバー！ジャジャー！) ",
+
+  "ひたむきに君は頑張る好印象",
+  "顔がほてる私",
+  "急展開激焦り",
+  "あーもうちょいお休みをさせて",
+  "こころ様にお願い",
+  "いつまでも準備ができない",
+  "イラララララララー！",
+  "はーどっこい！",
+
+  " (はーどっこい！)",
+
+  "ぱぱぱー！ぱぱぱー！とびだせジャンピング！",
+  "会いたくって飛んできたの！",
+  "ぱぱぱー！ぱぱぱー！とびだせオーイェイ！",
+  "ロマンチック到来さ！",
+  "ただコミュがしたいだけ",
+
+  " (👏 👏👏おい！×2) ",
+
+  "でも妄想大暴走",
+
+  " (👏 👏👏おい！×2) ",
+
+  "ぱぱぱー！ぱぱぱー！",
+  "とびだせジャンピング！",
+  "ありのままをあげる",
+
+  " (虎虎虎虎！虎虎虎虎！虎虎虎虎！虎火！",
+  "人造！繊維！海女！振動！化繊！飛！除去！) ",
+
+  "君とゲーム　家で2人の共同作業",
+  "ドキがムネムネ",
+  "あちゃちゃゲームオーバー",
+  "でもゆーてもそんなの不可能",
+  "できませんよ無理無理",
+  "いつまでも緊張がつづくー",
+  "助けてカミサマ〜",
+  "はーどっこい！",
+
+  " (はーどっこい！)",
+
+  "ぱぱぱー！ぱぱぱー！とびだせジャンピング！",
+  "空回り上等さ",
+  "ぱぱぱー！ぱぱぱー！とびだせオーイェイ！",
+  "ロマンチックどころじゃねー",
+  "ただ恋がしたいだけ",
+
+  " (👏 👏👏おい！×2) ",
+
+  "でも妄想大暴走",
+
+  " (👏 👏👏おい！×2) ",
+
+  "ぱぱぱー！ぱぱぱー！",
+  "とびだせジャンピング！",
+  "パーティー始めよう",
+
+  " (農場！舞！海鵜！跳！除去！飛！化繊！振動！海女！繊維！人造！火！虎！火！虎！火！虎虎虎虎！虎火人造繊維海女振動[倍速]",
+  "海女振動海女振動海女振動[倍速] 海女繊維海女繊維人造火[倍速] 虎！火！人造！繊維！海女！振動！化繊！飛！除去！跳！海鵜！舞！農場) ",
+
+  "あーもうちょいお休みをさせて",
+  "こころ様にお願い",
+  "いつまでも準備ができない",
+  "イラララララララー！",
+  "はーどっこい！",
+
+  " (はーどっこい！) ",
+
+  "ぱぱぱー！ぱぱぱー！とびだせジャンピング！",
+  "会いたくって飛んできたの！",
+  "ぱぱぱー！ぱぱぱー！とびだせオーイェイ！",
+  "ロマンチック到来さ！",
+  "ただコミュがしたいだけ",
+
+  " (👏□👏👏おい！×2) ",
+
+  "でも妄想大暴走",
+
+  " (👏□👏👏おい！×2) ",
+
+  "ぱぱぱー！ぱぱぱー！",
+  "とびだせジャンピング！",
+  "ありのままをあげる",
+
+  "ララララーララララー",
+  "ありのままをあげる",
+  "ララララーララララー",
+  "ありのままをあげる",
+  "ララララーララララー",
+  "ありのままをあげるよ"
+];
+    const colorForLines = [
+  
+];
+   const heartForLines = [
+ 
+];
+    
+
+    const lyricsContainer = document.getElementById('lyrics');
+    const displayModeSelect = document.getElementById('displayMode');
+function renderLyrics(mode) {
+  lyricsContainer.innerHTML = "";
+  let colorIndex = 0;
+  lyricsData.forEach((line, index) => {
+    const div = document.createElement('div');
+
+    if ((line.startsWith(' (') || line.endsWith(') '))) {
+    // コール
+        div.className = 'call';
+        div.textContent = line;
+    } 
+    else if (line.startsWith('[SEPARATOR]')) {
+    // 区切り
+        div.className = 'separator';
+        div.textContent = line.replace('[SEPARATOR]', '').trim();
+    }else if (mode === 'heart') {
+    div.className = 'lyrics-line';
+    div.style.color = 'black';
+
+    const heartSymbol = heartForLines[index];
+
+    if (heartSymbol && heartSymbol.trim() !== '') {
+        // ハート指定あり：文字列を1本にまとめる
+        div.textContent = `${heartSymbol} ${line}`;
+    } else {
+        // ハートなし：ただの文字
+        div.textContent = line;
+    }
+    }
+    else if (mode === 'color') {
+    div.className = 'lyrics-line';
+    div.style.color = colorForLines[index] || 'black';
+    div.textContent = line;
+    }
+
+    lyricsContainer.appendChild(div);
+  });
+}
+
+    displayModeSelect.addEventListener('change', (e) => {
+      renderLyrics(e.target.value);
+    });
+
+    document.getElementById('backButton').addEventListener('click', () => {
+  document.body.classList.add('fade-out');
+  setTimeout(() => {
+    window.location.href = '../index.html';
+  }, 800);
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  const savedColor = localStorage.getItem('bgColor');
+  if (savedColor) {
+    document.body.style.backgroundColor = savedColor;
+  }
+});
+
+displayModeSelect.value = 'heart';
+
+//初期がハート
+renderLyrics('heart');
+  </script>
+</body>
+</html>
