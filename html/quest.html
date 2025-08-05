@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quest × Quest</title>
+  <link rel="stylesheet" href="../css/kashi.css">
+  <link rel="icon" href="../img/ilife_banner.jpg">
+</head>
+<body>
+  <header>
+    <a href="quest.html" id="scrollTop">
+      <img src="../img/ilife_logo.png" alt="Header Logo">
+    </a>
+    <select id="displayMode">
+      <option value="color">色分けモード</option>
+      <option value="heart">ハートモード</option>
+    </select>
+  </header>
+
+  <main>
+    <h1>Quest × Quest</h1>
+    <div id="lyrics"></div>
+ <div class="member-color-label">
+    メンバーカラー：<br>
+    赤 ❤️ 心花りり <br>
+    黄 💛 福丸うさ <br>
+    緑 💚 若葉のあ <br>
+    ピンク 🩷 那蘭のどか <br>
+    白 🤍 あいす <br>
+    青 💙 空詩かれん <br>
+    水 🩵 虹羽みに <br>
+    紫 💜 純嶺みき <br>
+    オレンジ 🧡 小熊まむ <br>
+    </div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vidBugHJCtY?si=B5VqOGEKXBJCBpn9" title="YouTube video player" 
+frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </iframe>
+    <button id="backButton">ホームに戻る</button>
+  </main>
+
+  <script>
+    const lyricsData = [
+"Will you marry me?",
+"ねぇ、覚悟決めちゃいましょう？",
+"コンテニュー？Yes? No?",
+"なんて、ナンセンスすぎるの",
+"Will you marry me?",
+"ねぇ、私の胸に聞いて",
+"セーブ地点もきっとここに違いないわ",
+"プラスマイナス スキもキライも",
+"全部ひっくるめて愛し合いましょ",
+"これからの未来 ハードなドラマも",
+"付かず離れずに 歩いていこう",
+"エンディングの先 そのまた先まで",
+"アルティマエンドを目指して進もう！",
+
+"Will you marry me?",
+"ねぇ、無課金でもいいのよ",
+"だけどここからは有料コンテンツ",
+"Will you marry me?",
+"ねぇ、選択肢は一つよ",
+"村人Aもきっと祝福してる",
+"ハードモードも 初心者さんも",
+"関係ない ただ、大事な君よ",
+"伝えたいことがたくさんあるのに",
+"言葉、出てこない。本当の気持ち",
+"コントローラーでも、できない事だね",
+"君のターンだけ、コマンド不能",
+ 
+"イベント戦闘かもしれないけど",
+"あのブリッジ超えた先で待ってる",
+"最強装備も秘めた能力も",
+"持たない私の愛のクリティカル",
+"エンディングの先 そのまた先まで",
+"アルティマエンドを目指して進もう！",
+];
+    const colorForLines = [
+  
+];
+   const heartForLines = [
+ 
+];
+    
+
+    const lyricsContainer = document.getElementById('lyrics');
+    const displayModeSelect = document.getElementById('displayMode');
+function renderLyrics(mode) {
+  lyricsContainer.innerHTML = "";
+  let colorIndex = 0;
+  lyricsData.forEach((line, index) => {
+    const div = document.createElement('div');
+
+    if ((line.startsWith(' (') || line.endsWith(') '))) {
+    // コール
+        div.className = 'call';
+        div.textContent = line;
+    } 
+    else if (line.startsWith('[SEPARATOR]')) {
+    // 区切り
+        div.className = 'separator';
+        div.textContent = line.replace('[SEPARATOR]', '').trim();
+    }else if (mode === 'heart') {
+    div.className = 'lyrics-line';
+    div.style.color = 'black';
+
+    const heartSymbol = heartForLines[index];
+
+    if (heartSymbol && heartSymbol.trim() !== '') {
+        // ハート指定あり：文字列を1本にまとめる
+        div.textContent = `${heartSymbol} ${line}`;
+    } else {
+        // ハートなし：ただの文字
+        div.textContent = line;
+    }
+    }
+    else if (mode === 'color') {
+    div.className = 'lyrics-line';
+    div.style.color = colorForLines[index] || 'black';
+    div.textContent = line;
+    }
+
+    lyricsContainer.appendChild(div);
+  });
+}
+
+    displayModeSelect.addEventListener('change', (e) => {
+      renderLyrics(e.target.value);
+    });
+
+    document.getElementById('backButton').addEventListener('click', () => {
+  document.body.classList.add('fade-out');
+  setTimeout(() => {
+    window.location.href = '../index.html';
+  }, 800);
+});
+
+// ページロード時に背景を復元
+window.addEventListener('DOMContentLoaded', () => {
+  const savedColor = localStorage.getItem('bgColor');
+  if (savedColor) {
+    document.body.style.backgroundColor = savedColor;
+  }
+});
+
+// ① ハートモードを初期選択に設定
+displayModeSelect.value = 'heart';
+
+// ② 初期描画モードをハートに変更
+renderLyrics('heart');
+  </script>
+</body>
+</html>

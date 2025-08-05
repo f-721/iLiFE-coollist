@@ -2,13 +2,13 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <title>Sleeping face</title>
+  <title>むげんだいすき</title>
   <link rel="stylesheet" href="../css/kashi.css">
   <link rel="icon" href="../img/ilife_banner.jpg">
 </head>
 <body>
   <header>
-    <a href="sleeping.html" id="scrollTop">
+    <a href="mugen.html" id="scrollTop">
       <img src="../img/ilife_logo.png" alt="Header Logo">
     </a>
     <select id="displayMode">
@@ -18,7 +18,7 @@
   </header>
 
   <main>
-    <h1>Sleeping face</h1>
+    <h1>むげんだいすき</h1>
     <div id="lyrics"></div>
  <div class="member-color-label">
     メンバーカラー：<br>
@@ -32,69 +32,23 @@
     紫 💜 純嶺みき <br>
     オレンジ 🧡 小熊まむ <br>
     </div>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dgaOvdKmMtk?si=T9Wf4AtiDjEyrTZ9" 
-title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oVzemFG7GsQ?si=CN3ZH9gusXn9lIPs" title="YouTube video player" 
+frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </iframe>
     <button id="backButton">ホームに戻る</button>
   </main>
 
   <script>
+    //歌詞内容
     const lyricsData = [
-"隣の席の君を見てた",
-"毎日どの授業も 昼寝ばっかしてる",
-"寝顔がなんか 可愛らしくて",
-"ずっと見てても 飽きないよ",
-"ボサボサの",
-"（ボサボサの）",
-"寝癖がついてる君が",
-"寝ぼけた",
-"（寝ぼけた）",
-"顔して",
-"（顔して）",
-"「おはよう」なんて言ってきた",
-"それだけで",
-"（それだけで）",
-"たったそれだけの事で",
-"幸せになるのは 始まったばかりの恋のせいだ",
-
-"今度始まる映画の事",
-"君も見たいって言うから 誘ってみようかな",
-"いざとなったら 緊張してさ",
-"切り出せなくて泣きそうだ",
-"そんな時 ",
-"（そんな時）",
-"何気ない顔で君が",
-"「そういえば",
-"（そういえば）",
-"あの映画、",
-"（あの映画）",
-"見に行こうよ」",
-"なんて言うから",
-"ドキドキが",
-"（ドキドキが）",
-"止まらなくて困るんだ",
-"今度の日曜日 楽しみすぎてもう眠れないよ",
-
-"いつも通り君は 昼寝を始めて",
-"「ドキドキしないのかな」",
-"ちょっと不満になったりするけど",
-"ボサボサの",
-"（ボサボサの）",
-"寝癖がついてる君が",
-"寝ぼけた",
-"（寝ぼけた）",
-"顔して",
-"（顔して）",
-"「おはよう」なんて言ってきた",
-"それだけで",
-"（それだけで）",
-"たったそれだけの事で",
-"幸せになるのは 始まったばかりの恋のせいだ",
+ 
 ];
+//テキストカラー
     const colorForLines = [
   
 ];
+//テキストハート
+    
    const heartForLines = [
  
 ];
@@ -152,7 +106,6 @@ function renderLyrics(mode) {
   }, 800);
 });
 
-// ページロード時に背景を復元
 window.addEventListener('DOMContentLoaded', () => {
   const savedColor = localStorage.getItem('bgColor');
   if (savedColor) {
@@ -160,10 +113,9 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// ① ハートモードを初期選択に設定
 displayModeSelect.value = 'heart';
 
-// ② 初期描画モードをハートに変更
+//初期がハート
 renderLyrics('heart');
   </script>
 </body>
